@@ -4,11 +4,15 @@
 }
 
 .mosquito2 {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
 }
 
 .mosquito3 {
-  width: 130px;
-  height: 130px;
+  width: 90px;
+  height: 90px;
+}
+
+.ladoB {
+  transform: scaleX(-1);
 }
