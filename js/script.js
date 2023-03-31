@@ -6,4 +6,6 @@ function iniciarJogo() {
         alert("Selecione um nível para iniciar o jogo");
         return false;
     }
+
+    window.location.href = "app.html?" + nivel;
 }
