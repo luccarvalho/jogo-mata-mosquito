@@ -4,8 +4,8 @@ html {
 
 body {
   background-image: url(../img/bg.jpg);
-  background-size: 100%;
   background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .mosquito1 {
@@ -41,4 +41,23 @@ body {
 .cronometro {
   font-size: 20px;
   font-weight: bold;
+}
+
+/* RESPONSIVIDADE */
+@media (min-width: 375px) {
+  body {
+    background-size: auto;
+  }
+
+  .container img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1060px) {
+  body {
+    background-size: 100%;
+  }
 }
