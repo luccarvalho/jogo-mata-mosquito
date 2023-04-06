@@ -1,13 +1,23 @@
-var largura = 0;
-var altura = 0;
+// variáveis que posteriormente receberão a largura e altura da tela de forma dinâmica
+let largura = 0;
+let altura = 0;
 
-var vidas = 1;
+// função que atualiza a largura e altura da tela
+function ajustaTamanhoTela() {
 
-var tempo = 15;
+    largura = window.innerWidth;
+    altura = window.innerHeight;
 
-var criaMosquitoTempo = "";
+    posicaoAleatoria();
+}
 
-var nivel = window.location.search;
+let vidas = 1;
+
+let tempo = 15;
+
+let criaMosquitoTempo = "";
+
+let nivel = window.location.search;
 nivel = nivel.replace("?", "");
 
 if (nivel === "facil") {
@@ -23,15 +33,7 @@ if (nivel === "facil") {
     criaMosquitoTempo = 750;
 }
 
-function ajustaTamanhoTela() {
-
-    largura = window.innerWidth;
-    altura = window.innerHeight;
-
-    posicaoAleatoria();
-}
-
-var cronometro = setInterval(function () {
+let cronometro = setInterval(function () {
 
     if (tempo < 0) {
 
@@ -65,18 +67,23 @@ function posicaoAleatoria() {
         }
     }
 
-    var posicaoX = Math.floor(Math.random() * largura) - 90;
-    var posicaoY = Math.floor(Math.random() * altura) - 90;
+    // gerando posições aleatórias para o mosquito aparecer na tela
+    // baseado nas dimensões que já foram pré-informadas
+    let posicaoX = Math.floor(Math.random() * largura) - 90;
+    let posicaoY = Math.floor(Math.random() * altura) - 90;
 
+    // utilizando um operador ternário para a posição do mosquito não ficar negativa na tela
     posicaoX = posicaoX < 0 ? 0 : posicaoX;
     posicaoY = posicaoY < 0 ? 0 : posicaoY;
 
 
     // criando o elemento (mosquito) html de forma dinâmica
-    var mosquito = document.createElement("img");
+    let mosquito = document.createElement("img");
     mosquito.src = "img/mosca.png";
+    // mosquito recebe duas funções em sua classe
     mosquito.className = tamanhoAleatorio() + " " + ladoAleatorio();
     mosquito.style.position = "absolute";
+    // aplicando ao elemento as posições aleatórias
     mosquito.style.left = posicaoX + "px";
     mosquito.style.top = posicaoY + "px";
     mosquito.id = "mosquito";
@@ -88,9 +95,11 @@ function posicaoAleatoria() {
 
 }
 
-// faz o tamanho do mosquito ser alterado dinamicamente
+// função que aplica classes ao mosquito de forma randômica
 function tamanhoAleatorio() {
-    var classe = Math.floor(Math.random() * 3);
+
+    // com base no valor recebido é aplicada uma classe no elemento
+    let classe = Math.floor(Math.random() * 3);
 
     switch (classe) {
         case 0:
@@ -106,7 +115,8 @@ function tamanhoAleatorio() {
 
 // faz o mosquito ter a imagem espelhada dinamicamente
 function ladoAleatorio() {
-    var classe = Math.floor(Math.random() * 2);
+
+    let classe = Math.floor(Math.random() * 2);
 
     switch (classe) {
         case 0:
@@ -119,4 +129,4 @@ function ladoAleatorio() {
 }
 
 // fazendo o mosquito aparecer na tela automaticamente no tempo determinado pelo nível de dificuldade selecionado pelo jogador
-var criaMosquito = setInterval(function () { ajustaTamanhoTela() }, criaMosquitoTempo);
+let criaMosquito = setInterval(function () { ajustaTamanhoTela() }, criaMosquitoTempo);
