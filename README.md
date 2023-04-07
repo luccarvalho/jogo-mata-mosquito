@@ -22,6 +22,8 @@ Possui também um timer, cronômetro de contagem regressiva, que determina o tem
 
 Tanto na tela de game-over quanto na tela de vitória, existe um botão de reiniciar que direciona o jogador para o menu inicial do jogo.
 
+Projeto responsivo para mobile.
+
 ## :heavy_check_mark: Técnologias utilizadas:
 
 - `HTML`
